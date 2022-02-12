@@ -32,8 +32,8 @@ BOT_TOKEN = env("BOT_TOKEN")
 # BOT_TOKEN = os.environ.get('BOT_TOKEN', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "heroku-django-bot.herokuapp.com"]
 
@@ -62,6 +62,10 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+# CSRF_COOKIE_DOMAIN = 'heroku-django-bot.herokuapp.com'
+CSRF_TRUSTED_ORIGINS = ['https://heroku-django-bot.herokuapp.com']
+
 
 ROOT_URLCONF = "config.urls"
 
@@ -105,7 +109,7 @@ DATABASES = {
 #         "USER": env("USER"),
 #         "DATABASE": env("DATABASE"),
 #         "PASSWORD": env("PASSWORD"),
-#         "PORT": env("PORT"),
+#         "PORT": 5432,
 #         "HOST": env("HOST"),
 #     }
 # }

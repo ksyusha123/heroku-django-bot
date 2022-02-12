@@ -1,5 +1,8 @@
 # Template for backend course  
 
+App is working on ```https://heroku-django-bot.herokuapp.com```  
+Bot ```@django_2tapp_bot```  
+
 ## How to run  
 server: 
 ```python src/manage.py runserver ```   
@@ -21,9 +24,10 @@ post json
 }
 ```  
 
--```/api/users/login/```  
+- ```/api/users/login/```  
 authorize user  
 return info and token  
+works only if phone number is set  
 
 post json  
 ```
@@ -45,9 +49,9 @@ Header:
 ```
 
 ## Bot commands  
-- /start <password>   
+- /start \<password>   
 register you  
-- /set_phone <phone number>   
+- /set_phone \<phone number>   
 save your phone number  
 - /me     
 get info about you  
