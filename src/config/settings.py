@@ -63,7 +63,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CSRF_COOKIE_DOMAIN = 'heroku-django-bot.herokuapp.com'
+# CSRF_COOKIE_DOMAIN = 'heroku-django-bot.herokuapp.com'
+CSRF_TRUSTED_ORIGINS = ['https://heroku-django-bot.herokuapp.com']
+
 
 ROOT_URLCONF = "config.urls"
 
