@@ -10,8 +10,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = user.User
-        fields = ["telegram_username", "telegram_id", "phone_number",
-                  "password", "token"]
+        fields = ["telegram_username", "telegram_id", "phone_number", "password", "token"]
 
     def create(self, validated_data):
         return add_user(**validated_data)

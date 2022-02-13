@@ -35,5 +35,5 @@ class User(AbstractBaseUser, PermissionsMixin):
             "telegram_username": self.telegram_username,
             "telegram_id": self.telegram_id,
             "phone_number": self.phone_number,
-            "staff_status": self.is_staff
+            "staff_status": self.is_staff,
         }
