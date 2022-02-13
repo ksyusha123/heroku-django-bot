@@ -27,7 +27,6 @@ post json
 - ```/api/users/login/```  
 authorize user  
 return info and token  
-works only if phone number is set  
 
 post json  
 ```
@@ -39,8 +38,21 @@ post json
 }
 ```  
 
+- ```/api/users/set_phone/```  
+sets phone number  
+post json with Authorization header.  
+Header: 
+```
+{'Authorization' : 'Token token123'}
+```  
+request:  
+```
+"phone_number": "+79584621001"
+```
+
 - ```/api/users/me/```  
 get information about user  
+works only if phone number is set  
 
 get request with Authorizaion header.  
 Header: 
