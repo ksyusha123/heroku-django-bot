@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import environ
+
 import dj_database_url
+import environ
 
 env = environ.Env(SECRET_KEY=(str, ""), BOT_TOKEN=(str, ""), DATABASE_URL=(str, ""))
 
@@ -28,12 +29,8 @@ SECRET_KEY = env("SECRET_KEY")
 
 BOT_TOKEN = env("BOT_TOKEN")
 
-# SECRET_KEY = os.environ.get('SECRET_KEY', '')
-# BOT_TOKEN = os.environ.get('BOT_TOKEN', '')
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+DEBUG = False
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "heroku-django-bot.herokuapp.com"]
 
@@ -64,7 +61,7 @@ MIDDLEWARE = [
 ]
 
 # CSRF_COOKIE_DOMAIN = 'heroku-django-bot.herokuapp.com'
-CSRF_TRUSTED_ORIGINS = ['https://heroku-django-bot.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ["https://heroku-django-bot.herokuapp.com"]
 
 
 ROOT_URLCONF = "config.urls"
@@ -98,22 +95,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 #     }
 # }
 
-DATABASES = {
-    "default": dj_database_url.config()
-}
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": env("NAME"),
-#         "USER": env("USER"),
-#         "DATABASE": env("DATABASE"),
-#         "PASSWORD": env("PASSWORD"),
-#         "PORT": 5432,
-#         "HOST": env("HOST"),
-#     }
-# }
-
+DATABASES = {"default": dj_database_url.config()}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -161,9 +143,6 @@ AUTH_USER_MODEL = "app.User"
 REST_FRAMEWORK = {
     "EXCEPTION_HANDLER": "app.internal.exceptions.core_exception_handler",
     "NON_FIELD_ERRORS_KEY": "error",
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-    "DEFAULT_PERMISSION_CLASSES": (
-        "rest_framework.permissions.IsAuthenticated", )
+    "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework.authentication.TokenAuthentication",),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
 }

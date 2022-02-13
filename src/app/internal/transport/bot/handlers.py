@@ -1,8 +1,8 @@
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.db.utils import IntegrityError
+from rest_framework.authtoken.models import Token
 from telegram import Update
 from telegram.ext import CallbackContext
-from rest_framework.authtoken.models import Token
 
 from app.internal.services import user_service
 
@@ -17,8 +17,7 @@ def start(update: Update, context: CallbackContext):
         return
     password = args[1]
     try:
-        user = user_service.add_user(update.effective_chat.username, tg_id,
-                                password)
+        user = user_service.add_user(update.effective_chat.username, tg_id, password)
     except IntegrityError:
         context.bot.send_message(chat_id=tg_id, text="You are already our user")
     else:

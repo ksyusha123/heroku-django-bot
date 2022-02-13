@@ -1,5 +1,5 @@
-from rest_framework import serializers
 from django.contrib.auth import authenticate
+from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 
 
@@ -32,8 +32,4 @@ class LoginSerializer(serializers.Serializer):
 
         token, _ = Token.objects.get_or_create(user=user)
 
-        return {
-            "telegram_username": user.telegram_username,
-            "telegram_id": user.telegram_id,
-            "token": token.key
-        }
+        return {"telegram_username": user.telegram_username, "telegram_id": user.telegram_id, "token": token.key}
