@@ -36,14 +36,15 @@ def set_phone(update: Update, context: CallbackContext):
         )
         return
     phone_number = args[1]
+    message = "Saved your phone number to the database"
     try:
         user_service.set_phone(update.effective_chat.id, phone_number)
-        message = "Saved your phone number to the database"
     except ObjectDoesNotExist:
         message = "I don't know you :(\nPlease use /start"
     except ValidationError:
         message = "Wrong phone number :("
-    context.bot.send_message(chat_id=update.effective_chat.id, text=message)
+    finally:
+        context.bot.send_message(chat_id=update.effective_chat.id, text=message)
 
 
 def me(update: Update, context: CallbackContext):
