@@ -1,6 +1,6 @@
 import re
 
-from rest_framework.serializers import ValidationError
+from django.core.exceptions import ValidationError
 
 from app.internal.models.user import User
 
